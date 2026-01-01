@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../Common/Header";
 import Footer from "../Common/Footer";
 import { Outlet } from "react-router-dom";
-import Kunu from "../Common/Kunu";
 
 const UserLayout = () => {
   return (
