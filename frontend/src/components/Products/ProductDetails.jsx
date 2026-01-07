@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import beef from "../../assets/beef.jpeg";
 import chicken from "../../assets/chicken.jpeg";
 
 const ProductDetails = () => {
-  const [cartMessage, setCartMessage] = useState("");
+  const [quantity, setQuantity] = useState(0);
 
   const bestSellingProducts = [
     {
       _id: "1",
-      name: "Premium Beef Chuck",
+      name: "Premium Beef Chuck chuck chuck",
       price: 1200,
       images: [
         {
@@ -22,8 +23,17 @@ const ProductDetails = () => {
   ];
 
   const handleAddToCart = (productName) => {
-    setCartMessage(`${productName} added to cart!`);
-    setTimeout(() => setCartMessage(""), 3000);
+    if (quantity > 0) {
+      toast.success(`${quantity} x ${productName} added to cart!`);
+      setQuantity(0);
+    } else {
+      toast.error("Please add a quantity");
+    }
+  };
+
+  const increaseQuantity = () => setQuantity(quantity + 1);
+  const decreaseQuantity = () => {
+    if (quantity > 0) setQuantity(quantity - 1);
   };
 
   return (
@@ -35,13 +45,6 @@ const ProductDetails = () => {
             Our most popular and highly-rated products loved by customers
           </p>
         </div>
-
-        {/* Notification */}
-        {cartMessage && (
-          <div className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50">
-            {cartMessage}
-          </div>
-        )}
 
         {/* Best Selling Product Card - Centered */}
         <div className="flex justify-center">
@@ -67,23 +70,44 @@ const ProductDetails = () => {
 
                 {/* Info Container */}
                 <div className="flex-1 p-6 flex flex-col justify-between">
-                  <Link to={`/product/${product._id}`}>
-                    <h3 className="text-xl font-bold mb-2 hover:text-orange-700 transition-colors">
-                      {product.name}
-                    </h3>
-                  </Link>
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                    <Link to={`/product/${product._id}`} className="flex-1">
+                      <h3 className="text-xl font-bold hover:text-orange-700 transition-colors">
+                        {product.name}
+                      </h3>
+                    </Link>
 
-                  <div className="flex items-center justify-between mt-4">
-                    <p className="text-2xl font-bold text-gray-800">
-                      ₦{product.price.toLocaleString()}
-                    </p>
-                    <button
-                      onClick={() => handleAddToCart(product.name)}
-                      className="bg-orange-700 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded transition-colors duration-200"
-                    >
-                      Add to Cart
-                    </button>
+                    {/* Quantity Selector - Responsive */}
+                    <div className="flex items-center border-2 border-orange-700 rounded-lg overflow-hidden shrink-0">
+                      <button
+                        onClick={decreaseQuantity}
+                        className="bg-gray-100 hover:bg-gray-200 text-orange-700 font-bold px-2 py-1 transition-colors"
+                      >
+                        −
+                      </button>
+                      <span className="px-3 py-1 font-semibold text-gray-800 min-w-10 text-center">
+                        {quantity}
+                      </span>
+                      <button
+                        onClick={increaseQuantity}
+                        className="bg-gray-100 hover:bg-gray-200 text-orange-700 font-bold px-2 py-1 transition-colors"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
+
+                  <p className="text-2xl font-bold text-gray-800 mt-3">
+                    ₦{product.price.toLocaleString()}
+                  </p>
+
+                  {/* Add to Cart Button - Full Width */}
+                  <button
+                    onClick={() => handleAddToCart(product.name)}
+                    className="mt-4 w-full bg-orange-700 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded transition-colors"
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             ))}

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import beef from "../../assets/beef.jpeg";
 import chicken from "../../assets/chicken.jpeg";
 
@@ -36,6 +37,10 @@ const FeaturedProducts = () => {
       ],
     },
   ];
+
+  const handleAddToCart = (productName) => {
+    toast.success(`${productName} added to cart!`);
+  };
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -155,10 +160,8 @@ const FeaturedProducts = () => {
               </Link>
 
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  // Add to cart logic here
-                  console.log(`Added ${product.name} to cart`);
+                onClick={() => {
+                  handleAddToCart(product.name);
                 }}
                 className="mt-4 w-full bg-orange-700 hover:bg-orange-600 text-white font-semibold py-2 px-3 rounded transition-colors duration-200"
               >
