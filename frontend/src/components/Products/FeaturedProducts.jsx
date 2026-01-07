@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import beef from "../../assets/beef.jpeg";
 import chicken from "../../assets/chicken.jpeg";
+import chickenGizzard from "../../assets/chicken_gizzard.jpg";
+import chickenMeat from "../../assets/Chicken-Meat.png";
+import cowShin from "../../assets/cow_shin(ijase).jpg";
+import cowSharing from "../../assets/cow-sharing.jpg";
 
 const FeaturedProducts = () => {
   const scrollRef = useRef(null);
@@ -27,12 +31,45 @@ const FeaturedProducts = () => {
     },
     {
       _id: "2",
-      name: "Rib",
+      name: "Chicken Meat",
       price: 1200,
       images: [
         {
-          url: chicken,
-          altText: "Rib",
+          url: chickenMeat,
+          altText: "Chicken Meat",
+        },
+      ],
+    },
+    {
+      _id: "3",
+      name: "Chicken Gizzard",
+      price: 900,
+      images: [
+        {
+          url: chickenGizzard,
+          altText: "chickenGizzard",
+        },
+      ],
+    },
+    {
+      _id: "3",
+      name: "Cow Shin (Ijase)",
+      price: 900,
+      images: [
+        {
+          url: cowShin,
+          altText: "Cow Shin (Ijase)",
+        },
+      ],
+    },
+    {
+      _id: "3",
+      name: "Cow Sharing",
+      price: 900,
+      images: [
+        {
+          url: cowSharing,
+          altText: "Cow Sharing",
         },
       ],
     },

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
-import beef from "../../assets/beef.jpeg";
-import chicken from "../../assets/chicken.jpeg";
+import fullCow from "../../assets/full-cow.jpg";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(0);
@@ -10,12 +9,12 @@ const ProductDetails = () => {
   const bestSellingProducts = [
     {
       _id: "1",
-      name: "Premium Beef Chuck chuck chuck",
-      price: 1200,
+      name: "Full Cow",
+      price: 1200000,
       images: [
         {
-          url: beef,
-          altText: "Premium Beef Chuck",
+          url: fullCow,
+          altText: "Full Cow",
         },
       ],
       badge: "Best Seller",
