@@ -52,7 +52,7 @@ const ProductDetails = () => {
             {bestSellingProducts.map((product) => (
               <div
                 key={product._id}
-                className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="flex flex-col rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 {/* Image Container with Badge */}
                 <div className="relative">
@@ -78,7 +78,7 @@ const ProductDetails = () => {
                     </Link>
 
                     {/* Quantity Selector - Responsive */}
-                    <div className="flex items-center border-2 border-orange-700 rounded-lg overflow-hidden shrink-0">
+                    <div className="flex items-center border border-orange-700 rounded-lg overflow-hidden shrink-0">
                       <button
                         onClick={decreaseQuantity}
                         className="bg-gray-100 hover:bg-gray-200 text-orange-700 font-bold px-2 py-1 transition-colors"
