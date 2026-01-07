@@ -3,13 +3,14 @@ import logo from "../assets/logo.png";
 import logo2 from "../assets/logo2.png";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("User Login: ", { email, password });
+    console.log("User Regsiered: ", { name, email, password });
   };
 
   return (
@@ -20,9 +21,17 @@ const Login = () => {
           className="w-full max-w-md bg-white p-8 rounded-lg border-gray-200 border shadow-sm"
         >
           <h2 className="text-2xl font-bold text-center mb-6">Hey there! 👋🏻</h2>
-          <p className="text-center mb-6">
-            Enter your username and password to Login
-          </p>
+          <p className="text-center mb-6">Enter your information to SignUp</p>
+          <div className="mb-4">
+            <label className="block text-sm font-semibold mb-2">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-2 rounded border-gray-200 border shadow-sm"
+              placeholder="Enter your name"
+            />
+          </div>
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2">Email</label>
             <input
@@ -47,12 +56,12 @@ const Login = () => {
             type="submit"
             className="w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition"
           >
-            Sign In
+            Sign Up
           </button>
           <p className="mt-6 text-center text-sm">
             Don't have an account?
-            <Link to="/register" className="text-blue-500">
-              Register
+            <Link to="/login" className="text-blue-500">
+              Login
             </Link>
           </p>
         </form>
@@ -71,4 +80,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
