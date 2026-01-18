@@ -84,7 +84,7 @@ const MyOrdersPage = () => {
                     {order.orderItems.length}
                   </td>
                   <td className="py-2 px-2 sm:py-4 sm:px-4">
-                    ${order.totalPrice.toLocaleString()}
+                    ₦{order.totalPrice.toLocaleString()}
                   </td>
                   <td className="py-2 px-2 sm:py-4 sm:px-4">
                     <span
@@ -94,7 +94,7 @@ const MyOrdersPage = () => {
                           : "bg-yellow-100 text-yellow-700"
                       }`}
                     >
-                      {order.isPaid ? "Paid" : "Pending"}
+                      {order.isPaid ? "Paid" : "Pending"}.
                     </span>
                   </td>
                 </tr>

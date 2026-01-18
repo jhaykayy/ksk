@@ -57,7 +57,7 @@ const Navbar = () => {
           "
         >
           <Link
-            to="#"
+            to="collections/all"
             className="
               text-gray-700 text-sm font-medium
               hover:text-black uppercase
