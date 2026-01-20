@@ -103,6 +103,12 @@ const Navbar = () => {
           "
         >
           <Link
+            to="/admin"
+            className="black bg-black px-2 rounded text-sm text-white"
+          >
+            Admin
+          </Link>
+          <Link
             to="/profile"
             className="
               hover:text-black
