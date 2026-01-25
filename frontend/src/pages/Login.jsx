@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import logo2 from "../assets/logo2.png";
 import { Link } from "react-router-dom";
+import { loginUser } from "../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("User Login: ", { email, password });
+    dispatch(loginUser({ email, password }));
   };
 
   return (

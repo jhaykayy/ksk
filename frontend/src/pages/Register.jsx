@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import logo2 from "../assets/logo2.png";
 import { Link } from "react-router-dom";
+import { registerUser } from "../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("User Regsiered: ", { name, email, password });
+    dispatch(registerUser({ name, email, password }));
   };
 
   return (

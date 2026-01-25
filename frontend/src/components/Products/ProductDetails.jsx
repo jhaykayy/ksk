@@ -2,6 +2,29 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import fullCow from "../../assets/full-cow.jpg";
+import ProductsGrid from "./ProductGrid";
+import ProductGrid from "./ProductGrid";
+
+const similarProducts = [
+  {
+    _id: 1,
+    name: "abodi",
+    price: 100,
+    images: [{ url: "https://dummyimage.com/600x400/000/fff" }],
+  },
+  {
+    _id: 2,
+    name: "Product 2",
+    price: 100,
+    images: [{ url: "https://dummyimage.com/600x400/000/fff" }],
+  },
+  {
+    _id: 3,
+    name: "Product 3",
+    price: 100,
+    images: [{ url: "https://dummyimage.com/600x400/000/fff" }],
+  },
+];
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(0);
@@ -111,6 +134,13 @@ const ProductDetails = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-20">
+          <h2 className="text-2xl text-center font-medium mb-4">
+            You may also like
+          </h2>
+          <ProductGrid products={similarProducts} />
         </div>
       </div>
     </section>
